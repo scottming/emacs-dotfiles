@@ -22,6 +22,7 @@
 			 js2-mode
 			 nodejs-repl
 			 org-bullets
+             evil-leader
 			 ) "Default packages")
 
 (setq package-selected-packages scott/packages)

@@ -11,6 +11,10 @@
 (require 'init-org)
 (require 'init-better-defaults)
 
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+
 (setq custom-file (expand-file-name "config/custome.el" user-emacs-directory))
 
 (load-file custom-file)
