@@ -3,12 +3,12 @@
     (package-initialize)
     (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                       ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
-
 (require 'cl)
 
 ;; Define a private package list
 (defvar scott/packages '(
 			 company
+			 popwin
 			 neotree
 			 cider
 			 monokai-theme
@@ -34,6 +34,10 @@
     (dolist (pkg scott/packages)
       (when (not (package-installed-p pkg))
         (package-install pkg))))
+
+
+(require 'popwin)
+(popwin-mode 1)
 
 ;; load neotree
 (require 'neotree)
@@ -84,6 +88,10 @@
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 (global-set-key (kbd "<f10>") 'nodejs-repl-send-buffer)
 
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
 ;; Find Executable Path on OS X
 (when (memq window-system '(mac ns))
    (exec-path-from-shell-initialize))
@@ -96,6 +104,9 @@
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 (global-company-mode t)
 
+(setq auto-save-default nil)
+(global-auto-revert-mode t)
+
 ;; disable cursor mode
 (blink-cursor-mode -1)
 
@@ -105,12 +116,8 @@
 ;; disable tool bar
 (tool-bar-mode -1)
 
-;; show number line
-
 ;; close the start window
 (setq inhibit-splash-screen t)
-
-;; buffer list
 
 ;; others
 (scroll-bar-mode  -1)
@@ -132,4 +139,19 @@
 
 ;; others
 (delete-selection-mode t)
-(global-set-key [(control ?h)] 'delete-backward-char)
+;; (global-set-key [(control ?h)] 'delete-backward-char)
+;; (global-set-key "s-h s-f" 'find-function)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-idle-delay 0.3)
+ '(company-minimum-prefix-length 2))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
