@@ -23,6 +23,41 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-(setq mac-option-modifier 'super)
+(setq mac-option-modifier 'meta)
+
+(evil-leader/set-key 
+  "ff" 'find-file
+  "fr" 'recentf-open-files
+  "bb" 'switch-to-buffer
+  "bk" 'kill-buffer
+  "pf" 'counsel-git
+  "ps" 'helm-do-ag-project-root
+  "qq" 'save-buffers-kill-terminal
+  "ww" 'save-buffer
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  "wM" 'delete-other-windows)
+
+
+(evilnc-default-hotkeys)
+(define-key evil-insert-state-map (kbd "C-n") 'next-line)
+(define-key evil-insert-state-map (kbd "C-p") 'previous-line)
+(define-key evil-normal-state-map (kbd "U") 'undo-tree-redo)
+;; (define-key evil-normal-state-map (kbd ",nn") 'neotree-toggle)
+(define-key evil-normal-state-map (kbd ",cc") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map (kbd ",cc") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-normal-state-map (kbd ",cu") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map (kbd ",cu") 'evilnc-comment-or-uncomment-lines)
+
+(define-key evil-insert-state-map (kbd "M-w") 'copy-to-register) 
+(define-key evil-insert-state-map (kbd "C-r") 'evil-paste-from-register)
+(define-key evil-insert-state-map (kbd "C-y") 'yank)
+
+(add-hook 'neotree-mode-hook
+         (lambda ()
+           (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+           (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+           (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+           (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
 (provide 'init-keybindings)

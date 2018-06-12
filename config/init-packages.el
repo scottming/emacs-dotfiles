@@ -22,7 +22,12 @@
 			 js2-mode
 			 nodejs-repl
 			 org-bullets
-             evil-leader
+			 evil-leader
+			 evil-surround
+			 evil-nerd-commenter
+			 window-numbering
+			 powerline
+			 which-key
 			 ) "Default packages")
 
 (setq package-selected-packages scott/packages)
