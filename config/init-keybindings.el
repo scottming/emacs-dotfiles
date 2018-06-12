@@ -32,18 +32,19 @@
   "bk" 'kill-buffer
   "pf" 'counsel-git
   "ps" 'helm-do-ag-project-root
-  "qq" 'save-buffers-kill-terminal
+  "qq" 'evil-quit
   "ww" 'save-buffer
   "w/" 'split-window-right
   "w-" 'split-window-below
   "wM" 'delete-other-windows)
 
-
-(evilnc-default-hotkeys)
+(define-key evil-normal-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
 (define-key evil-insert-state-map (kbd "C-n") 'next-line)
 (define-key evil-insert-state-map (kbd "C-p") 'previous-line)
 (define-key evil-normal-state-map (kbd "U") 'undo-tree-redo)
 ;; (define-key evil-normal-state-map (kbd ",nn") 'neotree-toggle)
+
+(evilnc-default-hotkeys)
 (define-key evil-normal-state-map (kbd ",cc") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map (kbd ",cc") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-normal-state-map (kbd ",cu") 'evilnc-comment-or-uncomment-lines)
