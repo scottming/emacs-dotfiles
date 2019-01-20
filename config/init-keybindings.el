@@ -30,6 +30,8 @@
   "fr" 'recentf-open-files
   "bb" 'switch-to-buffer
   "bk" 'kill-buffer
+  "bp" 'previous-buffer
+  "bn" 'next-buffer
   "pf" 'counsel-git
   "ps" 'helm-do-ag-project-root
   "qq" 'evil-quit
@@ -54,6 +56,16 @@
 (define-key evil-insert-state-map (kbd "C-r") 'evil-paste-from-register)
 (define-key evil-insert-state-map (kbd "C-y") 'yank)
 
+;; ctrl-u settings in evil mode
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-insert-state-map (kbd "C-u")
+  (lambda ()
+    (interactive)
+    (evil-delete (point-at-bol) (point))))
+
+
+;; neotree
 (add-hook 'neotree-mode-hook
          (lambda ()
            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)

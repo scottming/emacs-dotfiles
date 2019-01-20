@@ -9,25 +9,34 @@
 
 ;; Define a private package list
 (defvar scott/packages '(
-			 company
+			 company 
 			 popwin
-			 neotree
-			 cider
-			 monokai-theme
-			 zenburn-theme
-			 hungry-delete
 			 swiper
 			 counsel
 			 smartparens
-			 js2-mode
-			 nodejs-repl
-			 org-bullets
-			 evil-leader
-			 evil-surround
-			 evil-nerd-commenter
+			 neotree 
+			 rainbow-delimiters
+			 aggressive-indent
+			 hungry-delete
 			 window-numbering
 			 powerline
 			 which-key
+			 use-package
+			 org-bullets
+
+			 monokai-theme
+			 zenburn-theme
+
+			 evil-leader
+			 evil-surround
+			 evil-nerd-commenter
+			 evil-paredit
+			 evil-smartparens
+
+			 cider
+			 clojure-mode
+			 yasnippet
+
 			 ) "Default packages")
 
 (setq package-selected-packages scott/packages)
@@ -44,35 +53,88 @@
       (when (not (package-installed-p pkg))
         (package-install pkg))))
 
+(eval-when-compile
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d
+  (add-to-list 'load-path "~/.emacs.d/elpa/")
+  (require 'use-package))
 
-(require 'popwin)
-(popwin-mode 1)
+;; move the cursor to the open window
+(use-package popwin
+  :config
+  (popwin-mode 1))
 
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+;; same as nerdtree
+(use-package neotree
+  :bind (("<f8>" . neotree-toggle)))
+
+(use-package hungry-delete
+  :config
+  (global-hungry-delete-mode))
+
+(use-package evil-smartparens
+  :init
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+  :config
+  (sp-local-pair '(emacs-lisp-mode) "'" "'" :actions nil)
+  (sp-local-pair '(clojure-mode) "'" "'" :actions nil)
+  (sp-use-paredit-bindings))
+
+(use-package lisp-mode
+  :ensure nil
+  :init
+  (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)       
+  (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
+  (add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode))
+
+(use-package clojure-mode
+  :ensure t
+  :mode (("\\.clj\\'" . clojure-mode)
+         ("\\.boot\\'" . clojure-mode)
+         ("\\.edn\\'" . clojure-mode)
+         ("\\.cljs\\'" . clojurescript-mode)
+         ("\\.cljs\\.hl\\'" . clojurescript-mode))
+  :init
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'clojure-mode-hook #'smartparens-mode)       
+  (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+  (add-hook 'clojure-mode-hook #'evil-smartparens-mode))
+
+(use-package aggressive-indent
+  :ensure t
+  :commands aggressive-indent
+  :init
+  (add-hook 'clojure-mode-hook #'aggressive-indent-mode))
+
+(use-package evil-paredit-mode
+  :commands evil-paredit-mode
+  :init
+  (add-hook 'clojure-mode-hook #'evil-paredit-mode))
+
+(use-package rainbow-delimiters
+  :commands rainbow-delimiters
+  :init
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
 
 ;; config for company
-(global-company-mode t)
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode t))
 
-;; config js2-mode for js file
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
-
-(load-theme 'zenburn 1)
-
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-(require 'nodejs-repl)
-
-(require 'smartparens-config)
-(add-hook 'js-node-hook #'smartparens-mode)
-
-;; config for counsel
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-;; (setq enable-recursive-minibuffers t)
+;; (load-theme 'zenburn t)
+(load-theme 'monokai t)
+;; (load-theme 'tsdh-light t)
 
 (provide 'init-packages)

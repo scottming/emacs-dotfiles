@@ -9,6 +9,13 @@
 (require 'recentf)
 (recentf-mode 1)			
 (setq recentf-max-menu-items 25)
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+        (t (save-excursion
+             (ignore-errors (backward-up-list))
+             (funcall fn)))))
+(show-paren-mode 1) ;; highlight another brackets
 
 ;; Find Executable Path on OS X
 (when (memq window-system '(mac ns))
