@@ -8,8 +8,8 @@
 
 ;; config for counsel
 (global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "<f6>") 'ivy-resume)
+(global-set-key (kbd "C-c C-r") 'ivy-resume) 
+(global-set-key (kbd "<f6>") 'ivy-resume) 
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
@@ -24,6 +24,7 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 (setq mac-option-modifier 'meta)
+;; (setq mac-command-modifier nil)
 
 (evil-leader/set-key 
   "ff" 'find-file
@@ -64,6 +65,8 @@
     (interactive)
     (evil-delete (point-at-bol) (point))))
 
+(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+(define-key evil-insert-state-map (kbd "C-e") 'evil-end-of-line)
 
 ;; neotree
 (add-hook 'neotree-mode-hook

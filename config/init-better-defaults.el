@@ -21,4 +21,11 @@
 (when (memq window-system '(mac ns))
    (exec-path-from-shell-initialize))
 
+(defun kill-other-buffers ()
+    "Kill all other buffers."
+    (interactive)
+    (mapc 'kill-buffer 
+          (delq (current-buffer) 
+                (remove-if-not 'buffer-file-name (buffer-list)))))
+
 (provide 'init-better-defaults)

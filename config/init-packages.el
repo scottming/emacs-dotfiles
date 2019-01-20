@@ -97,6 +97,14 @@
   (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
   (add-hook 'clojure-mode-hook #'evil-smartparens-mode))
 
+(use-package cider
+  :ensure t
+  :config
+  (setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))"))
+
 (use-package aggressive-indent
   :ensure t
   :commands aggressive-indent
@@ -114,19 +122,16 @@
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
 (use-package evil-surround
-  :ensure t
   :config
   (global-evil-surround-mode 1))
 
 (use-package ivy
-  :ensure t
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
 
 (use-package company
-  :ensure t
   :config
   (global-company-mode t))
 
