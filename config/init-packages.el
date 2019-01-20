@@ -1,4 +1,3 @@
-;; 插件管理
 (require 'cl)
 
 (when (>= emacs-major-version 24)
@@ -63,7 +62,6 @@
   :config
   (popwin-mode 1))
 
-;; same as nerdtree
 (use-package neotree
   :bind (("<f8>" . neotree-toggle)))
 
@@ -127,7 +125,6 @@
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
 
-;; config for company
 (use-package company
   :ensure t
   :config
