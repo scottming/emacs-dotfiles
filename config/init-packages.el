@@ -31,9 +31,8 @@
 
                          cider
                          clojure-mode
-                         yasnippet
-
-                         ) "Default packages")
+                         yasnippet)
+                        "Default packages")
 
 (setq package-selected-packages scott/packages)
 
