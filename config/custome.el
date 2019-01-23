@@ -48,7 +48,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (evil-vimish-fold emacs-lisp company popwin swiper counsel smartparens neotree rainbow-delimiters aggressive-indent hungry-delete window-numbering powerline which-key use-package org-bullets monokai-theme zenburn-theme evil-leader evil-surround evil-nerd-commenter evil-paredit evil-smartparens clojure-mode yasnippet)))
+    (parinfer evil-multiedit evil-vimish-fold emacs-lisp company popwin swiper counsel smartparens neotree rainbow-delimiters aggressive-indent hungry-delete window-numbering powerline which-key use-package org-bullets monokai-theme zenburn-theme evil-leader evil-surround evil-nerd-commenter evil-paredit evil-smartparens clojure-mode yasnippet)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
@@ -82,4 +82,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(iedit-occurrence ((t (:inherit default :background "dark violet"))))
  '(show-paren-match ((t (:background "#6F6F6F" :foreground "gray" :inverse-video t :weight bold)))))

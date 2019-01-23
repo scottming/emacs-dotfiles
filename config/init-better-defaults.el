@@ -15,7 +15,9 @@
         (t (save-excursion
              (ignore-errors (backward-up-list))
              (funcall fn)))))
-(show-paren-mode 1) ;; highlight another brackets
+
+;; (show-paren-mode 1) ;; highlight another brackets
+;; (setq show-paren-style 'parentheses)
 
 ;; Find Executable Path on OS X
 (when (memq window-system '(mac ns))
