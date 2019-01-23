@@ -94,11 +94,11 @@
          ("\\.cljs\\'" . clojurescript-mode)
          ("\\.cljs\\.hl\\'" . clojurescript-mode)))
 
-(use-package aggressive-indent
-  :ensure t
-  :commands aggressive-indent
-  :init
-  (add-hook 'clojure-mode-hook #'aggressive-indent-mode))
+;; (use-package aggressive-indent
+;;   :ensure t
+;;   :commands aggressive-indent
+;;   :init
+;;   (add-hook 'clojure-mode-hook #'aggressive-indent-mode))
 
 (use-package evil-surround
   :config
