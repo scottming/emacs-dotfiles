@@ -14,7 +14,7 @@
 			 counsel
 			 neotree 
 			 rainbow-delimiters
-			 aggressive-indent
+			 ;; aggressive-indent
 			 hungry-delete
 			 window-numbering
 			 powerline
