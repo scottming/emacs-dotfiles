@@ -32,7 +32,7 @@
                          cider
                          clojure-mode
                          yasnippet)
-                        "Default packages")
+  "Default packages")
 
 (setq package-selected-packages scott/packages)
 
@@ -67,8 +67,15 @@
 
 (use-package parinfer
   :ensure t
+  :config
+  (parinfer-strategy-add 'default 'newline-and-indent)
   :bind
-  (("C-," . parinfer-toggle-mode))
+  (:map parinfer-mode-map
+        ("C-," . parinfer-toggle-mode)
+        ("<tab>" . parinfer-smart-tab:dwim-right)
+        ("S-<tab>" . parinfer-smart-tab:dwim-left)
+        ("C-i" . parinfer--reindent-sexp)
+        ("C-M-i" . parinfer-auto-fix))
   :init
   (progn
     (setq parinfer-extensions
