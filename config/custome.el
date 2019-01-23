@@ -48,7 +48,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (parinfer evil-multiedit evil-vimish-fold emacs-lisp company popwin swiper counsel smartparens neotree rainbow-delimiters aggressive-indent hungry-delete window-numbering powerline which-key use-package org-bullets monokai-theme zenburn-theme evil-leader evil-surround evil-nerd-commenter evil-paredit evil-smartparens clojure-mode yasnippet)))
+    (smart-tab parinfer evil-multiedit evil-vimish-fold emacs-lisp company popwin swiper counsel smartparens neotree rainbow-delimiters aggressive-indent hungry-delete window-numbering powerline which-key use-package org-bullets monokai-theme zenburn-theme evil-leader evil-surround evil-nerd-commenter evil-paredit evil-smartparens clojure-mode yasnippet)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
