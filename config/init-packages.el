@@ -1,53 +1,53 @@
 (require 'cl)
 
 (when (>= emacs-major-version 24)
-    (require 'package)
-    (package-initialize)
-    (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                      ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+  (require 'package)
+  (package-initialize)
+  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                           ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
 
 ;; Define a private package list
 (defvar scott/packages '(
-			 company 
-			 popwin
-			 swiper
-			 counsel
-			 neotree 
-			 rainbow-delimiters
-			 ;; aggressive-indent
-			 hungry-delete
-			 window-numbering
-			 powerline
-			 which-key
-			 use-package
-			 org-bullets
+                         company 
+                         popwin
+                         swiper
+                         counsel
+                         neotree 
+                         rainbow-delimiters
+                         ;; aggressive-indent
+                         hungry-delete
+                         window-numbering
+                         powerline
+                         which-key
+                         use-package
+                         org-bullets
 
-			 monokai-theme
-			 zenburn-theme
+                         monokai-theme
+                         zenburn-theme
 
-			 evil-leader
-			 evil-surround
-			 evil-nerd-commenter
+                         evil-leader
+                         evil-surround
+                         evil-nerd-commenter
 
-			 cider
-			 clojure-mode
-			 yasnippet
+                         cider
+                         clojure-mode
+                         yasnippet
 
-			 ) "Default packages")
+                         ) "Default packages")
 
 (setq package-selected-packages scott/packages)
 
 ;; Check the packages is installed or not
 (defun my/packages-installed-p ()
-    (loop for pkg in scott/packages
-          when (not (package-installed-p pkg)) do (return nil)
-          finally (return t)))
+  (loop for pkg in scott/packages
+        when (not (package-installed-p pkg)) do (return nil)
+        finally (return t)))
 (unless (my/packages-installed-p)
-    (message "%s" "Refreshing package database...")
-    (package-refresh-contents)
-    (dolist (pkg scott/packages)
-      (when (not (package-installed-p pkg))
-        (package-install pkg))))
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (dolist (pkg scott/packages)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
 
 (eval-when-compile
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
@@ -74,12 +74,12 @@
   (progn
     (setq parinfer-extensions
           '(defaults       ; should be included.
-            pretty-parens  ; different paren styles for different modes.
-            evil           ; If you use Evil.
-            lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
-            paredit        ; Introduce some paredit commands.
-            smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-            smart-yank))   ; Yank behavior depend on mode.
+             pretty-parens  ; different paren styles for different modes.
+             evil           ; If you use Evil.
+             lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
+             paredit        ; Introduce some paredit commands.
+             smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
+             smart-yank))   ; Yank behavior depend on mode.
     (add-hook 'clojure-mode-hook #'parinfer-mode)
     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
     (add-hook 'common-lisp-mode-hook #'parinfer-mode)
