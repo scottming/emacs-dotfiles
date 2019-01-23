@@ -65,6 +65,11 @@
   :config
   (global-hungry-delete-mode))
 
+(use-package highlight-parentheses
+  :init
+  (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)
+  (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode))
+
 (use-package parinfer
   :ensure t
   :config
