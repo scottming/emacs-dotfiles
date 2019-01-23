@@ -12,7 +12,7 @@
 			 popwin
 			 swiper
 			 counsel
-			 smartparens
+			 ;; smartparens
 			 neotree 
 			 rainbow-delimiters
 			 aggressive-indent
@@ -29,8 +29,8 @@
 			 evil-leader
 			 evil-surround
 			 evil-nerd-commenter
-			 evil-paredit
-			 evil-smartparens
+			 ;; evil-paredit
+			 ;; evil-smartparens
 
 			 cider
 			 clojure-mode
@@ -69,20 +69,6 @@
   :config
   (global-hungry-delete-mode))
 
-(use-package evil-smartparens
-  :init
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
-  :config
-  (sp-local-pair '(emacs-lisp-mode) "'" "'" :actions nil)
-  (sp-local-pair '(clojure-mode) "'" "'" :actions nil)
-  (sp-use-paredit-bindings))
-
-(use-package lisp-mode
-  :ensure nil
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)       
-  (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
-  (add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode))
 
 (use-package clojure-mode
   :ensure t
@@ -92,34 +78,49 @@
          ("\\.cljs\\'" . clojurescript-mode)
          ("\\.cljs\\.hl\\'" . clojurescript-mode))
   :init
-  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'clojure-mode-hook #'smartparens-mode)       
-  (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
-  (add-hook 'clojure-mode-hook #'evil-smartparens-mode))
+  ;; (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+  ;; (add-hook 'clojure-mode-hook #'smartparens-mode)       
+  ;; (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+  ;; (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
+)
 
-(use-package cider
-  :ensure t
-  :config
-  (setq cider-cljs-lein-repl
-      "(do (require 'figwheel-sidecar.repl-api)
-           (figwheel-sidecar.repl-api/start-figwheel!)
-           (figwheel-sidecar.repl-api/cljs-repl))"))
+;; (use-package evil-smartparens
+;;   :init
+;;   (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+;;   :config
+;;   (sp-local-pair '(emacs-lisp-mode) "'" "'" :actions nil)
+;;   (sp-local-pair '(clojure-mode) "'" "'" :actions nil)
+;;   (sp-use-paredit-bindings))
+
+;; (use-package lisp-mode
+;;   :ensure nil
+;;   :init
+;;   (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)       
+;;   (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
+;;   (add-hook 'emacs-lisp-mode-hook #'evil-smartparens-mode))
+;; (use-package cider
+;;   :ensure t
+;;   :config
+;;   (setq cider-cljs-lein-repl
+;;       "(do (require 'figwheel-sidecar.repl-api)
+;;            (figwheel-sidecar.repl-api/start-figwheel!)
+;;            (figwheel-sidecar.repl-api/cljs-repl))"))
+
+;; (use-package evil-paredit-mode
+;;   :commands evil-paredit-mode
+;;   :init
+;;   (add-hook 'clojure-mode-hook #'evil-paredit-mode))
+
+;; (use-package rainbow-delimiters
+;;   :commands rainbow-delimiters
+;;   :init
+;;   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
 (use-package aggressive-indent
   :ensure t
   :commands aggressive-indent
   :init
   (add-hook 'clojure-mode-hook #'aggressive-indent-mode))
-
-(use-package evil-paredit-mode
-  :commands evil-paredit-mode
-  :init
-  (add-hook 'clojure-mode-hook #'evil-paredit-mode))
-
-(use-package rainbow-delimiters
-  :commands rainbow-delimiters
-  :init
-  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
 (use-package evil-surround
   :config
