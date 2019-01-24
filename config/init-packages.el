@@ -23,6 +23,8 @@
                          org-bullets
 
                          monokai-theme
+                         spacemacs-theme 
+                         material-theme
                          zenburn-theme
 
                          evil-leader
@@ -68,7 +70,9 @@
 (use-package highlight-parentheses
   :init
   (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)
-  (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode))
+  (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
+  :config
+  (setq hl-paren-background-colors '("orangered4")))
 
 (use-package parinfer
   :ensure t
@@ -104,6 +108,10 @@
          ("\\.edn\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode)
          ("\\.cljs\\.hl\\'" . clojurescript-mode)))
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-@" . er/expand-region))
 
 (use-package evil-surround
   :config
