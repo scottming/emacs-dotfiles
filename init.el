@@ -5,13 +5,14 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(require 'init-packages)
 
-;; require evil
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
-(global-evil-leader-mode)
+(require 'init-packages)
+(require 'init-utils)
+(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
+;; Calls (package-initialize)
+(require 'init-elpa)      ;; Machinery for installing required packages
+(require 'init-exec-path)
+
 
 (require 'init-keybindings)
 (require 'init-ui)
@@ -20,12 +21,9 @@
 
 (powerline-default-theme)
 (window-numbering-mode 1)
-
-(require 'evil-surround)
-(global-evil-surround-mode)
-(setq evil-want-fine-undo t)
-
+(require 'init-evil)
 (require 'which-key)
+(require 'init-editing-utils)
 (which-key-mode)
 
 (setq custom-file (expand-file-name "config/custome.el" user-emacs-directory))

@@ -26,9 +26,6 @@
                          spacemacs-theme 
                          material-theme
                          zenburn-theme
-
-                         evil-leader
-                         evil-surround
                          evil-nerd-commenter
 
                          cider
@@ -55,6 +52,10 @@
   (add-to-list 'load-path "~/.emacs.d/elpa/")
   (require 'use-package))
 
+
+(use-package diminish
+  :ensure t)
+
 ;; move the cursor to the open window
 (use-package popwin
   :config
@@ -70,9 +71,20 @@
 (use-package highlight-parentheses
   :init
   (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)
-  (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
-  :config
-  (setq hl-paren-background-colors '("orangered4")))
+  (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode))
+  ;; :config
+  ;; (setq hl-paren-background-colors '("orangered4")))
+
+(use-package iy-go-to-char
+  :ensure t
+  :bind
+  ("C-`" . iy-go-to-char)
+  ("<f13>" . iy-go-to-char)
+  ("C-~" . iy-go-to-char-backward))
+
+(use-package avy
+  :ensure t
+  :init (setq avy-background t))
 
 (use-package parinfer
   :ensure t
@@ -113,10 +125,6 @@
   :ensure t
   :bind ("C-@" . er/expand-region))
 
-(use-package evil-surround
-  :config
-  (global-evil-surround-mode 1))
-
 (use-package ivy
   :config
   (ivy-mode 1)
@@ -126,9 +134,5 @@
 (use-package company
   :config
   (global-company-mode t))
-
-;; (load-theme 'zenburn t)
-(load-theme 'monokai t)
-;; (load-theme 'tsdh-light t)
 
 (provide 'init-packages)

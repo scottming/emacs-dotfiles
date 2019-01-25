@@ -23,7 +23,7 @@
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (material)))
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-bright)))
  '(custom-safe-themes
    (quote
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "028de01489a683696c64dcc2a01eaa663670d04202de3fce48ec3a5542bc2da5" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "c3d4af771cbe0501d5a865656802788a9a0ff9cf10a7df704ec8b8ef69017c68" "190a9882bef28d7e944aa610aa68fe1ee34ecea6127239178c7ac848754992df" default)))
@@ -57,7 +57,9 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
- '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
+ '(hl-paren-colors
+   (quote
+    ("orange red" "#b58900" "#268bd2" "#6c71c4" "#859900")))
  '(hl-sexp-background-color "#efebe9")
  '(hl-todo-keyword-faces
    (quote
@@ -83,7 +85,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (expand-region solarized-theme color-theme-sanityinc-tomorrow smart-tab parinfer evil-multiedit evil-vimish-fold emacs-lisp company popwin swiper counsel smartparens neotree rainbow-delimiters aggressive-indent hungry-delete window-numbering powerline which-key use-package org-bullets monokai-theme zenburn-theme evil-leader evil-surround evil-nerd-commenter evil-paredit evil-smartparens clojure-mode yasnippet)))
+    (guide-key highlight-escape-sequences whole-line-or-region move-dup page-break-lines multiple-cursors avy expand-region browse-kill-ring symbol-overlay rainbow-delimiters beacon mode-line-bell vlf list-unicode-display unfill exec-path-from-shell fullframe seq solarized-theme color-theme-sanityinc-tomorrow smart-tab parinfer evil-multiedit evil-vimish-fold emacs-lisp company popwin swiper counsel smartparens neotree aggressive-indent hungry-delete window-numbering powerline which-key use-package org-bullets monokai-theme zenburn-theme evil-leader evil-surround evil-nerd-commenter evil-paredit evil-smartparens clojure-mode yasnippet)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")

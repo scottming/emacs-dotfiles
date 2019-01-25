@@ -26,48 +26,6 @@
 (setq mac-option-modifier 'meta)
 ;; (setq mac-command-modifier nil)
 
-(evil-leader/set-key 
-  "ff" 'find-file
-  "fr" 'recentf-open-files
-  "bb" 'switch-to-buffer
-  "bk" 'kill-buffer
-  "bp" 'previous-buffer
-  "bn" 'next-buffer
-  "pf" 'counsel-git
-  "ps" 'helm-do-ag-project-root
-  "qq" 'evil-quit
-  "ww" 'save-buffer
-  "w/" 'split-window-right
-  "w-" 'split-window-below
-  "wM" 'delete-other-windows)
-
-(define-key evil-normal-state-map (kbd "\\") 'evil-repeat-find-char-reverse)
-(define-key evil-insert-state-map (kbd "C-n") 'next-line)
-(define-key evil-insert-state-map (kbd "C-p") 'previous-line)
-(define-key evil-normal-state-map (kbd "U") 'undo-tree-redo)
-;; (define-key evil-normal-state-map (kbd ",nn") 'neotree-toggle)
-
-(evilnc-default-hotkeys)
-(define-key evil-normal-state-map (kbd ",cc") 'evilnc-comment-or-uncomment-lines)
-(define-key evil-visual-state-map (kbd ",cc") 'evilnc-comment-or-uncomment-lines)
-(define-key evil-normal-state-map (kbd ",cu") 'evilnc-comment-or-uncomment-lines)
-(define-key evil-visual-state-map (kbd ",cu") 'evilnc-comment-or-uncomment-lines)
-
-(define-key evil-insert-state-map (kbd "M-w") 'copy-to-register) 
-(define-key evil-insert-state-map (kbd "C-r") 'evil-paste-from-register)
-(define-key evil-insert-state-map (kbd "C-y") 'yank)
-
-;; ctrl-u settings in evil mode
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
-(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
-(define-key evil-insert-state-map (kbd "C-u")
-  (lambda ()
-    (interactive)
-    (evil-delete (point-at-bol) (point))))
-
-(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
-(define-key evil-insert-state-map (kbd "C-e") 'evil-end-of-line)
-
 ;; neotree
 (add-hook 'neotree-mode-hook
          (lambda ()
