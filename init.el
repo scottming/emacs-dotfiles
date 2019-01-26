@@ -21,9 +21,12 @@
 
 (powerline-default-theme)
 (window-numbering-mode 1)
+
 (require 'init-evil)
 (require 'which-key)
 (require 'init-editing-utils)
+(require 'init-clojure)
+
 (which-key-mode)
 
 (setq custom-file (expand-file-name "config/custome.el" user-emacs-directory))

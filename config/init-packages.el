@@ -9,27 +9,17 @@
 ;; Define a private package list
 (defvar scott/packages '(
                          company 
-                         popwin
                          swiper
                          counsel
-                         neotree 
                          rainbow-delimiters
                          ;; aggressive-indent
-                         hungry-delete
                          window-numbering
                          powerline
                          which-key
-                         use-package
                          org-bullets
 
-                         monokai-theme
-                         spacemacs-theme 
-                         material-theme
-                         zenburn-theme
                          evil-nerd-commenter
-
                          cider
-                         clojure-mode
                          yasnippet)
   "Default packages")
 
@@ -52,28 +42,31 @@
   (add-to-list 'load-path "~/.emacs.d/elpa/")
   (require 'use-package))
 
-
 (use-package diminish
   :ensure t)
 
 ;; move the cursor to the open window
 (use-package popwin
+  :ensure t
   :config
   (popwin-mode 1))
 
 (use-package neotree
+  :ensure t
   :bind (("<f8>" . neotree-toggle)))
 
 (use-package hungry-delete
+  :ensure t
   :config
   (global-hungry-delete-mode))
 
 (use-package highlight-parentheses
+  :ensure t
   :init
   (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)
   (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode))
-  ;; :config
-  ;; (setq hl-paren-background-colors '("orangered4")))
+;; :config
+;; (setq hl-paren-background-colors '("orangered4")))
 
 (use-package iy-go-to-char
   :ensure t
@@ -86,52 +79,19 @@
   :ensure t
   :init (setq avy-background t))
 
-(use-package parinfer
-  :ensure t
-  :config
-  (parinfer-strategy-add 'default 'newline-and-indent)
-  :bind
-  (:map parinfer-mode-map
-        ("C-," . parinfer-toggle-mode)
-        ("<tab>" . parinfer-smart-tab:dwim-right)
-        ("S-<tab>" . parinfer-smart-tab:dwim-left)
-        ("C-i" . parinfer--reindent-sexp)
-        ("C-M-i" . parinfer-auto-fix))
-  :init
-  (progn
-    (setq parinfer-extensions
-          '(defaults       ; should be included.
-             pretty-parens  ; different paren styles for different modes.
-             evil           ; If you use Evil.
-             lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
-             paredit        ; Introduce some paredit commands.
-             smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-             smart-yank))   ; Yank behavior depend on mode.
-    (add-hook 'clojure-mode-hook #'parinfer-mode)
-    (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-    (add-hook 'common-lisp-mode-hook #'parinfer-mode)
-    (add-hook 'scheme-mode-hook #'parinfer-mode)
-    (add-hook 'lisp-mode-hook #'parinfer-mode)))
-
-(use-package clojure-mode
-  :ensure t
-  :mode (("\\.clj\\'" . clojure-mode)
-         ("\\.boot\\'" . clojure-mode)
-         ("\\.edn\\'" . clojure-mode)
-         ("\\.cljs\\'" . clojurescript-mode)
-         ("\\.cljs\\.hl\\'" . clojurescript-mode)))
-
 (use-package expand-region
   :ensure t
   :bind ("C-@" . er/expand-region))
 
 (use-package ivy
+  :ensure t
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
 
 (use-package company
+  :ensure t
   :config
   (global-company-mode t))
 
