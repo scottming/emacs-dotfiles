@@ -343,11 +343,11 @@ With arg N, insert N newlines."
     (add-hook 'lisp-mode-hook #'parinfer-mode))
   :bind
   (:map parinfer-mode-map
-        ("c-," . parinfer-toggle-mode)
-        ("c-i" . parinfer--reindent-sexp)
-        ("c-m-i" . parinfer-auto-fix)
+        ("C-," . parinfer-toggle-mode)
+        ("C-i" . parinfer--reindent-sexp)
+        ("C-M-i" . parinfer-auto-fix)
         ("<tab>" . parinfer-smart-tab:dwim-right)
-        ("s-<tab>" . parinfer-smart-tab:dwim-left)))
+        ("S-<tab>" . parinfer-smart-tab:dwim-left)))
         
 ;; (require-package 'guide-key)
 ;; (setq guide-key/guide-key-sequence t)
