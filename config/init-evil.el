@@ -34,7 +34,9 @@
               ("z," . ha/xref-pop-marker-stack)
               ("\\" . 'evil-repeat-find-char-reverse)
               ("C-u" . 'evil-scroll-up)
-              ("C-e" . 'move-end-of-line))
+              ("C-e" . 'move-end-of-line)
+              ("gd" .  dumb-jump-go)
+              ("C-o" . dumb-jump-back))
 
   ;; While I'm still getting used to Evil, I'll eschew certain
   ;; advanced features, and fall-back on my Emacs.  Setting to `nil'
