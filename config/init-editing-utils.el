@@ -96,18 +96,18 @@
 
 
 
-(when (fboundp 'global-prettify-symbols-mode)
-  (add-hook 'after-init-hook 'global-prettify-symbols-mode))
+; (when (fboundp 'global-prettify-symbols-mode)
+;   (add-hook 'after-init-hook 'global-prettify-symbols-mode))
 
-
-(when (maybe-require-package 'symbol-overlay)
-  (dolist (hook '(prog-mode-hook html-mode-hook yaml-mode-hook conf-mode-hook))
-    (add-hook hook 'symbol-overlay-mode))
-  (after-load 'symbol-overlay
-    (diminish 'symbol-overlay-mode)
-    (define-key symbol-overlay-mode-map (kbd "M-i") 'symbol-overlay-put)
-    (define-key symbol-overlay-mode-map (kbd "M-n") 'symbol-overlay-jump-next)
-    (define-key symbol-overlay-mode-map (kbd "M-p") 'symbol-overlay-jump-prev)))
+; 
+; (when (maybe-require-package 'symbol-overlay)
+;   (dolist (hook '(prog-mode-hook html-mode-hook yaml-mode-hook conf-mode-hook))
+;     (add-hook hook 'symbol-overlay-mode))
+;   (after-load 'symbol-overlay
+;     (diminish 'symbol-overlay-mode)
+;     (define-key symbol-overlay-mode-map (kbd "M-i") 'symbol-overlay-put)
+;     (define-key symbol-overlay-mode-map (kbd "M-n") 'symbol-overlay-jump-next)
+;     (define-key symbol-overlay-mode-map (kbd "M-p") 'symbol-overlay-jump-prev)))
 
 ;;----------------------------------------------------------------------------
 ;; Zap *up* to char is a handy pair for zap-to-char
@@ -332,7 +332,6 @@ With arg N, insert N newlines."
           '(defaults
              pretty-parens  
              evil          
-             lispy        
              paredit     
              smart-tab  
              smart-yank))
@@ -349,11 +348,16 @@ With arg N, insert N newlines."
         ("<tab>" . parinfer-smart-tab:dwim-right)
         ("S-<tab>" . parinfer-smart-tab:dwim-left)))
         
-;; (require-package 'guide-key)
-;; (setq guide-key/guide-key-sequence t)
-;; (add-hook 'after-init-hook 'guide-key-mode)
-;; (after-load 'guide-key
-;;   (diminish 'guide-key-mode)
+;; (use-package highlight-indent-guides
+;;   :ensure t
+;;   :init
+;;   (add-hook 'clojure-mode-hook 'highlight-indent-guides-mode)
+;;   :config
+;;   (setq highlight-indent-guides-method 'character)
+;;   (setq highlight-indent-guides-character ?\|)
+;;   (setq highlight-indent-guides-auto-odd-face-perc 15)
+;;   (setq highlight-indent-guides-auto-even-face-perc 15)
+;;   (setq highlight-indent-guides-auto-character-face-perc 20))
 
 
 (provide 'init-editing-utils)

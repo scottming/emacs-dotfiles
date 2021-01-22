@@ -9,7 +9,6 @@
 (require 'init-packages)
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
-;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path)
 
@@ -26,6 +25,7 @@
 (require 'which-key)
 (require 'init-editing-utils)
 (require 'init-clojure)
+(require 'init-elixir)
 
 (which-key-mode)
 
